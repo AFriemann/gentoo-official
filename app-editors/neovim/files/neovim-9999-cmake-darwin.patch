@@ -1,6 +1,6 @@
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -80,33 +80,6 @@ set(ENV{PKG_CONFIG_PATH} "$ENV{PKG_CONFIG_PATH}:${DEPS_PREFIX}/lib/pkgconfig")
+@@ -74,33 +74,6 @@ set(ENV{PKG_CONFIG_PATH} "$ENV{PKG_CONFIG_PATH}:${DEPS_PREFIX}/lib/pkgconfig")
  # used for check_c_compiler_flag
  include(CheckCCompilerFlag)
  
@@ -26,7 +26,7 @@
 -  # Work around some old, broken detection by CMake for knowing when to use the
 -  # isystem flag.  Apple's compilers have supported this for quite some time
 -  # now.
--  if(CMAKE_C_COMPILER_ID_MATCHES "GNU")
+-  if(CMAKE_C_COMPILER_ID MATCHES "GNU")
 -    set(CMAKE_INCLUDE_SYSTEM_FLAG_C "-isystem ")
 -  endif()
 -endif()
@@ -36,7 +36,7 @@
    set(CASE_INSENSITIVE_FILENAME TRUE)
 --- a/cmake.deps/CMakeLists.txt
 +++ b/cmake.deps/CMakeLists.txt
-@@ -112,13 +112,6 @@ if(CMAKE_CXX_COMPILER)
+@@ -111,13 +111,6 @@ if(CMAKE_CXX_COMPILER)
    set(DEPS_CXX_COMPILER "${CMAKE_CXX_COMPILER}")
  endif()
  
